@@ -1,0 +1,8 @@
+@import "settings";
+@import "foundation";
+
+.todo-item input:checked + span {
+  text-decoration: line-through;
+}
+
+

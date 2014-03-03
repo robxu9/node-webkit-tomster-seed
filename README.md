@@ -1,24 +1,36 @@
-node-webkit-hipster-seed
+node-webkit-tomster-seed
 ========================
-[![Gittip](http://img.shields.io/gittip/Anonyfox.png)](https://www.gittip.com/Anonyfox/)
-[![Dependency Status](https://gemnasium.com/Anonyfox/node-webkit-hipster-seed.png)](https://gemnasium.com/Anonyfox/node-webkit-hipster-seed)
+[![Gittip](https://img.shields.io/gittip/Kerrick.png)](https://www.gittip.com/Kerrick/)
 
-Bootstrap a crossplatform Desktop Application using tools you probably never heard of.
+A Foundation for a cross-platform Desktop Application using tools you probably never heard of.
 
-If you're familiar with the node.js world, this sketch should get you informed, if not: an [explanation](https://github.com/Anonyfox/node-webkit-hipster-seed/wiki/how-it-works) is placed [in the wiki](https://github.com/Anonyfox/node-webkit-hipster-seed/wiki). 
+These tools include:
 
-![How NWHS works](https://raw.github.com/Anonyfox/node-webkit-hipster-seed/master/docs/nwhs-draft.png)
+- Single Page App
+    - Handlebars for templating
+    - CoffeeScript for your programming language
+    - SCSS for your styles
+    - Ember.js for rapid and scalable app development
+    - ZURB Foundation for base styles
+- Build Tools
+    - Brunch for building your assets
+    - Grunt for building your app
+    - Bower for managing your dependencies
+- Desktop Application
+    - node-webkit for a desktop app with web technologies
+        - Node.js for filesystem access and npm
+        - Chromium for the DOM and UI rendering
 
 #TL;DR?
 
 - No this isn't a developer joke. It works. 
-- `brunch new https://github.com/Anonyfox/node-webkit-hipster-seed MyApp` to get you started.
+- `brunch new https://github.com/Kerrick/node-webkit-tomster-seed MyApp` to get you started.
 - `npm run compiler` assembles your application into `/_public` and watches file changes.
 - `npm run app` starts your application locally. 
 - `npm run deploy` builds your app for windows, osx and linux. the binaries are placed in `/dist` after building. 
-- `bower install <frontend-module>` for any frontend-related stuff. jQuery, Angular-plugins, and so on. 
+- `bower install <frontend-module>` for any frontend-related stuff. jQuery, Underscore, and so on. 
 - `npm install my-module` **inside of `app/assets`** to install node.js modules. 
-- see the [wiki](https://github.com/Anonyfox/node-webkit-hipster-seed/wiki) for advanced stuff.
+- see the [wiki](https://github.com/Kerrick/node-webkit-tomster-seed/wiki) for advanced stuff.
 
 #Workflow - detailed
 
@@ -35,21 +47,21 @@ You need the following stuff installed on your machine:
 ###1. Bootstrap a new Desktop App!
 
 ```
-brunch new https://github.com/Anonyfox/node-webkit-hipster-seed MyApp
+brunch new https://github.com/Kerrick/node-webkit-tomster-seed MyApp
 ```
 
 *This may take a few minutes depending on your hardware and internet connection, since this git repo will be cloned, a bunch of npm modules will be installed, including the somewhat big [node-webkit](https://github.com/rogerwang/node-webkit), and several bower modules afterwards.*
 
-###2. Develop an AngularJS App on Steroids!
+###2. Develop an Ember.js App on Steroids!
 
 `cd MyApp`. Place your typical application code under `/app`. So: 
 
-- `/app/styles` contains all your stylesheets as LESS files. You may look into `/app/styles/app.less` when fine-tuning your included CSS-related components.
-- `/app/scripts` is the folder for your coffeescript application logic, especially your AngularJS stuff. The mighty AngularJS main-module is defined in `/app/app.coffee` and includes the angular module loader and the url routing definitions. 
-- `/app/partials` contains your Jade templates which are compiled and merged into an AngularJS template module. The main index file is located at `/app/index.jade` and will be compiled to an actual `index.html` file.
+- `/app/styles` contains all your stylesheets as SCSS files. You may look into `/app/styles/app.scss` when fine-tuning your included CSS-related components.
+- `/app/scripts` is the folder for your coffeescript application logic, especially your Ember.js stuff. The mighty Ember.js Router is defined in `/app/app.coffee` and includes `Ember.Application.create()` and the url route mapper. 
+- `/app/partials` contains your Emblem templates which are compiled and merged into the Ember.js templates object. The main index file is located at `/app/index.emblem` and will be compiled to an actual `index.html` file.
 - `/app/assets` is the catch-all directory for everything else, like images or fonts. The whole directory, including the folder-hierarchy, is copied **as is** into the final application folder. *If you want to use npm modules inside your application, install them here, and NOT in the toplevel folder!* Also, the `/app/assets/package.json` is used to describe and build your application, NOT the toplevel `/package.json`!
 
-*The App-level structure is basically the same as [angular-brunch-seed](https://github.com/scotch/angular-brunch-seed).*
+*The App-level structure is basically the same as [ember-app-kit](https://github.com/stefanpenner/ember-app-kit/).*
 
 All this assembling stuff is managed for you automatically when you run the following command: 
 
@@ -67,7 +79,7 @@ Gone are the days of drag'n'droppin' your jQuery plugins from diverse websites i
 
 ###4. Test ALL the things!
 
-Since your desktop application is basically just an AngularJS app, you can use [Karma](http://karma-runner.github.io/0.10/index.html), which is especially written for testing AngularJS apps end-to-end. *(ToDo: configure karma to fire up node-webkit instead of chromium.)*
+Since your desktop application is basically just an Ember.js app, you can use [Karma](http://karma-runner.github.io/0.10/plus/emberjs.html), which is awesome for testing Ember.js apps end-to-end. *(ToDo: configure karma to fire up node-webkit instead of chromium.)*
 
 ###5. Deploy your App!
 
@@ -86,10 +98,8 @@ and you'll have your final application folders located in `/dist` for each major
 #Feedback
 
 - Just use the issues section to discuss features or report bugs.
-- There is a thread on [HackerNews](https://news.ycombinator.com/item?id=7094465) and one on [Reddit](http://www.reddit.com/r/webdev/comments/1vumf5/workflow_for_frontend_developers_to_create/). 
-- If you have general questions not related to this project, you may tweet to [@Hisako1337](https://twitter.com/Hisako1337) (that's me.).
+- If you have general questions not related to this project, you may tweet to [@KerrickLong](https://twitter.com/KerrickLong) (that's me.).
 
 #Donate!
 
-If you like what you see, feel free to tip me some DOGECOIN. Much App. Wow!
-`D6M5ibT5CUe14yWRt8ZmVQkwzp8icio5Yc`
+If you like what you see, feel free to [tip me on GitTip](https://www.gittip.com/Kerrick/).

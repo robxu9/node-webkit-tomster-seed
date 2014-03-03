@@ -1,0 +1,20 @@
+@import "settings";
+@import "foundation";
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .todo-item input:checked + span {
+    text-decoration: line-through;
+  }
+
+  .create-todo {
+    .new-todo {
+      display: inline;
+      width: auto;
+    }
+  }
+}
+

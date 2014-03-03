@@ -1,0 +1,22 @@
+<h2>Todos</h2>
+<div class="todo-summary">
+  <span class="todo-count">{{remaining}} of {{length}} remaining</span>
+  <button class="archive tiny radius alert button" {{action "archive"}}>Archive Done Items</button>
+</div>
+<ul class="todo-list">
+  {{#each model}}
+    <li class="todo-item">
+      <label>
+        {{input type="checkbox" checked=done}}
+        <span {{bind-attr class="done:is-done:not-done"}}>{{title}}</span>
+      </label>
+    </li>
+  {{/each}}
+  <li class="create-todo">
+    <label>
+      {{input value=newTodo type="text" class="new-todo"}}
+      <button class="create small radius button" {{action 'create'}}>Create</button>
+    </label>
+  </li>
+</ul>
+

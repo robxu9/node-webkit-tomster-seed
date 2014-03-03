@@ -8,33 +8,26 @@ module.exports = function(karma) {
 
 
     // frameworks to use
-    frameworks: ['jasmine'],
+    frameworks: ['qunit'],
 
 
     // list of files / patterns to load in the browser
     files: [
-
-      // Program files
-      '_public/js/vendor.js',
-      '_public/js/app.js',
-
-      // Specs
-
-      // Load mocks directly from bower
-      'bower_components/angular-mocks/angular-mocks.js',
-
-      'test/unit/**/*.spec.*'
-    ],
-
-
-    // list of files to exclude
-    exclude: [
+        'bower_components/jquery/jquery.js',
+        'bower_components/handlebars/handlebars.js',
+        'bower_components/ember/ember.js',
+        'app/**/*.coffee',
+        'test/unit/**/*.coffee',
+        'app/templates/**/*.handlebars',
+        'app/templates/**/*.hbs',
+        '_public/**/*.css',
+        {pattern: '_public/**/*.js', included: false}
     ],
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['dots'],
 
 
     // web server port
@@ -66,7 +59,7 @@ module.exports = function(karma) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // If browser does not capture in given timeout [ms], kill it
@@ -75,10 +68,19 @@ module.exports = function(karma) {
 
     // Plugins to load
     plugins: [
-      'karma-jasmine',
-      'karma-coffee-preprocessor',
-      'karma-chrome-launcher'
+        'karma-qunit',
+        'karma-chrome-launcher',
+        'karma-coffee-preprocessor',
+        'karma-ember-preprocessor',
+        'karma-phantomjs-launcher'
     ],
+
+
+    preprocessors: {
+        '**/*.coffee': 'coffee',
+        '**/*.handlebars': 'ember',
+        '**/*.hbs': 'ember'
+    },
 
 
     // Continuous Integration mode

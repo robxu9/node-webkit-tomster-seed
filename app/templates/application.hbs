@@ -1,0 +1,21 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1>{{#link-to 'index'}}Node Webkit Tomster Seed{{/link-to}}</h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="left">
+      {{!-- Nested link-tos because Foundation's classes want li.active, not a.active --}}
+      {{#link-to 'todo' tagName='li'}}{{link-to 'Todo List' 'todo'}}{{/link-to}}
+      {{#link-to 'view1' tagName='li'}}{{link-to 'View 1' 'view1'}}{{/link-to}}
+    </ul>
+  </section>
+</nav>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    {{outlet}}
+    {{sem-ver}}
+  </div>
+</div>
+
